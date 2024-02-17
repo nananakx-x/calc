@@ -12,14 +12,14 @@ app.use(cors());
 
 app.post('/api/add', (req, res) => {
   const { first, second } = req.body;
-  const result = parseInt(first) + parseInt(second);
-  res.json({ result });
+  const ans = parseInt(first) + parseInt(second);
+  res.json({ ans });
 });
 
 app.post('/api/subtract', (req, res) => {
   const { first, second } = req.body;
-  const result = parseInt(first) - parseInt(second);
-  res.json({ result });
+  const ans = parseInt(first) - parseInt(second);
+  res.json({ ans });
 });
   
 app.listen(5000, () => { 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; 
+import React, { useState } from 'react'; 
 import axios from "axios"; 
 import './App.css'; 
   
@@ -18,12 +18,12 @@ function App() {
         }
       })
       .then(response => {
-        setAns(response.data.result);
+        setAns(response.data.ans);
         setFirst(0);
         setSecond(0);
       })
       .catch(error => {
-        console.error('Error:', error);
+        console.error(error);
       });
     }
   
@@ -38,40 +38,58 @@ function App() {
         }
       })
       .then(response => {
-        setAns(response.data.result);
+        setAns(response.data.ans);
         setFirst(0);
         setSecond(0);
       })
       .catch(error => {
-        console.error('Error:', error);
+        console.error(error);
       });
     }
   
   
     return (
-      <div>
+      <div
+      style={{
+        display: 'grid',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '50vh',
+        fontSize: 15,
+        padding: "100px", 
+        fontFamily: "sans-serif"
+      }}
+      >
         <p>Operands</p>
-        <input name="Input 1"
+        <input 
           type="number"
           value={first}
           placeholder="Enter first number"
           onChange={(text) => setFirst(text.target.value)}
         />
-        <input name="Input 2"
+        <input 
           type="number"
           value={second}
           placeholder="Enter second number"
           onChange={(text) => setSecond(text.target.value)}
         />
-        <button onClick={add}>
+        <button 
+          style={{
+            backgroundColor: 'darkgreen',
+            color: 'white',
+          }}
+          onClick={add}>
           Add
         </button>
-        <button onClick={substr}>
+        <button 
+          style={{
+            backgroundColor: 'darkred',
+            color: 'white',
+          }}
+          onClick={substr}>
           Subtract
         </button>
-        <p>Result is {ans}</p>
-  
-  
+        <p>Answer: {ans}</p> 
       </div>
      
     );
